@@ -24,6 +24,11 @@ public class CharacterSO : ScriptableObject
     {
         return profession;
     }
+
+    public DialogueSO GetDialogue()
+    {
+        return dialogue;
+    }
 }
 
 public enum Professions

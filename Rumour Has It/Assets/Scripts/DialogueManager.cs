@@ -8,8 +8,12 @@ public class DialogueManager : MonoBehaviour
     public static DialogueManager Instance;
 
     public Action<string> OnNewDialogueLine;
+    public Action OnEndDialogue;
 
     private DialogueSO currentDialogue;
+    private bool canRead = false;
+
+    [SerializeField] GameObject DialogueUI;
 
     private void Awake()
     {
@@ -27,22 +31,41 @@ public class DialogueManager : MonoBehaviour
     {
         currentDialogue = dialogueSO;
         currentDialogue.Reset();
+
+        StartCoroutine(InitiateDialogue());
+    }
+
+    IEnumerator InitiateDialogue()
+    {
+        DialogueUI.SetActive(true);
+        yield return null;
+        canRead = true;
         ReadNextLine();
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0))
         {
             ReadNextLine();
         }
     }
 
-    private void ReadNextLine()
+    public void ReadNextLine()
     {
-        if (currentDialogue && currentDialogue.HasMoreLines())
+        if (!currentDialogue || !canRead)
+            return;
+
+        if (currentDialogue.HasMoreLines())
         {
             OnNewDialogueLine?.Invoke(currentDialogue.GetDialogueLine());
+        }
+        else
+        {
+            OnEndDialogue?.Invoke();
+            currentDialogue = null;
+            canRead = false;
+            DialogueUI.SetActive(false);
         }
     }
 }

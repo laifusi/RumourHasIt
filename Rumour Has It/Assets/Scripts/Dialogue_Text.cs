@@ -16,11 +16,17 @@ public class Dialogue_Text : MonoBehaviour
     private void Start()
     {
         DialogueManager.Instance.OnNewDialogueLine += SetDialogueText;
+        DialogueManager.Instance.OnEndDialogue += RemoveDialogueText;
     }
 
     private void SetDialogueText(string dialogueLine)
     {
         text.SetText(dialogueLine);
+    }
+
+    private void RemoveDialogueText()
+    {
+        text.SetText("");
     }
 
     private void OnDestroy()
