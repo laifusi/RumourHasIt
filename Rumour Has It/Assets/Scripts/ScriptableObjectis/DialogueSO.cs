@@ -25,4 +25,9 @@ public class DialogueSO : ScriptableObject
     {
         return dialogue.Count > currentLine;
     }
+
+    public RumourSO GetRumour()
+    {
+        return rumour;
+    }
 }

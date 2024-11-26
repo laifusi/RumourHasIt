@@ -11,6 +11,10 @@ public class Character : MonoBehaviour
     private void Start()
     {
         DialogueManager.Instance.OnEndDialogue += FinishedReading;
+
+        // This character knows they are the gossip of a specific rumour.
+        // To avoid manual mistakes, the gossip is assigned in each rumour SO via code.
+        character.GetDialogue().GetRumour().SetGossip(character);
     }
 
     public void SpeakTo()
