@@ -9,6 +9,13 @@ public class RumourSO : ScriptableObject
     [SerializeField] CharacterSO character;
 
     private CharacterSO gossip;
+    private CharacterSO playersChoice;
+
+    public void Refresh()
+    {
+        // We eliminate the player's choice at the start of the game
+        playersChoice = null;
+    }
 
     public string GetRumour()
     {
@@ -28,5 +35,27 @@ public class RumourSO : ScriptableObject
     public void SetGossip(CharacterSO rumourGossip)
     {
         gossip = rumourGossip;
+    }
+
+    public CharacterSO GetPlayersCharacterChoice()
+    {
+        return playersChoice;
+    }
+
+    public void SetPlayersCharacterChoice(CharacterSO playersCh)
+    {
+        playersChoice = playersCh;
+    }
+
+    public CharacterSO RemovePlayersChoice()
+    {
+        CharacterSO chToRemove = playersChoice;
+        playersChoice = null;
+        return chToRemove;
+    }
+
+    public bool HasPlayerCharacterChoice()
+    {
+        return playersChoice != null;
     }
 }

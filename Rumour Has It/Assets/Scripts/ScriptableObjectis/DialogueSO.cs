@@ -10,7 +10,7 @@ public class DialogueSO : ScriptableObject
 
     private int currentLine = 0;
 
-    public void Reset()
+    public void Refresh()
     {
         currentLine = 0;
     }

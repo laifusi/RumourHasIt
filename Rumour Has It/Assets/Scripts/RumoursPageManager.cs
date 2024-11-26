@@ -12,16 +12,63 @@ public class RumoursPageManager : MonoBehaviour
     [SerializeField] TMP_Text rumourText;
     [SerializeField] Image assignedChImage;
     [SerializeField] TMP_Text assignedChName;
+    [SerializeField] GameObject assignedChPanel;
+    [SerializeField] GameObject assignChButton;
+
+    private RumourSO openRumour;
+
+    // TEMPORARY SOLUTION ONLY FOR TESTING
+    [SerializeField] RumourSO[] allRumours;
+
+    private void Start()
+    {
+        // TEMPORARY SOLUTION ONLY FOR TESTING
+        foreach(RumourSO rumour in allRumours)
+        {
+            rumour.Refresh();
+        }
+    }
 
     public void OpenRumour(RumourButton rumourToOpen)
     {
         page.SetActive(true);
 
-        RumourSO assignedRumour = rumourToOpen.GetRumourInfo();
-        gossipImage.sprite = assignedRumour.GetGossip().GetImage();
-        gossipName.SetText(assignedRumour.GetGossip().GetCharacterName());
-        rumourText.SetText(assignedRumour.GetRumour());
-        assignedChImage.sprite = assignedRumour.GetCharacterSO().GetImage();
-        assignedChName.SetText(assignedRumour.GetCharacterSO().GetCharacterName());
+        openRumour = rumourToOpen.GetRumourInfo();
+        FillRumourSection();
+        FillAssignedCharacterSection();
+    }
+
+    private void FillRumourSection()
+    {
+        gossipImage.sprite = openRumour.GetGossip().GetImage();
+        gossipName.SetText(openRumour.GetGossip().GetCharacterName());
+        rumourText.SetText(openRumour.GetRumour());
+    }
+
+    private void FillAssignedCharacterSection()
+    {
+        bool hasChoice = openRumour.HasPlayerCharacterChoice();
+        if (hasChoice)
+        {
+            assignedChImage.sprite = openRumour.GetPlayersCharacterChoice().GetImage();
+            assignedChName.SetText(openRumour.GetPlayersCharacterChoice().GetCharacterName());
+        }
+        assignedChPanel.SetActive(hasChoice);
+        assignChButton.SetActive(!hasChoice);
+    }
+
+    public void AssignCharacterToRumour(CharacterButton chosenCharacter)
+    {
+        CharacterSO characterToAssign = chosenCharacter.GetCharacterInfo();
+        openRumour.SetPlayersCharacterChoice(characterToAssign);
+        characterToAssign.SetPlayersRumourChoice(openRumour);
+        FillAssignedCharacterSection();
+    }
+
+    public void RemoveAssignedCharacterFromRumour()
+    {
+        CharacterSO removedCharacter = openRumour.RemovePlayersChoice();
+        removedCharacter.RemovePlayersChoice();
+        FillAssignedCharacterSection();
     }
 }

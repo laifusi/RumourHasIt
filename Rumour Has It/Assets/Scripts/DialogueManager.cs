@@ -30,7 +30,7 @@ public class DialogueManager : MonoBehaviour
     public void ReadDialogue(DialogueSO dialogueSO)
     {
         currentDialogue = dialogueSO;
-        currentDialogue.Reset();
+        currentDialogue.Refresh();
 
         StartCoroutine(InitiateDialogue());
     }
