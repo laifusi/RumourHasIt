@@ -17,18 +17,6 @@ public class RumoursPageManager : MonoBehaviour
 
     private RumourSO openRumour;
 
-    // TEMPORARY SOLUTION ONLY FOR TESTING
-    [SerializeField] RumourSO[] allRumours;
-
-    private void Start()
-    {
-        // TEMPORARY SOLUTION ONLY FOR TESTING
-        foreach(RumourSO rumour in allRumours)
-        {
-            rumour.Refresh();
-        }
-    }
-
     public void OpenRumour(RumourButton rumourToOpen)
     {
         page.SetActive(true);

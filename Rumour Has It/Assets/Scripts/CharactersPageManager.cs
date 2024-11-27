@@ -16,18 +16,6 @@ public class CharactersPageManager : MonoBehaviour
 
     private CharacterSO openCharacter;
 
-    // TEMPORARY SOLUTION ONLY FOR TESTING
-    [SerializeField] CharacterSO[] allCharacters;
-
-    private void Start()
-    {
-        // TEMPORARY SOLUTION ONLY FOR TESTING
-        foreach (CharacterSO character in allCharacters)
-        {
-            character.Refresh();
-        }
-    }
-
     public void OpenCharacter(CharacterButton characterToOpen)
     {
         page.SetActive(true);
