@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d526d9cf890757249871df727d2d9200, type: 3}
-  m_Name: Jake
+  m_Script: {fileID: 11500000, guid: 93234ccb51d47ab4e88415162f792842, type: 3}
+  m_Name: Jake_TBA_Rumour
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
-  characterName: Jake
-  profession: 1
-  dialogue: {fileID: 11400000, guid: 2e41872a391c61347890f45d9f99551e, type: 2}
+  rumour: The musician lost his phone
+  character: {fileID: 11400000, guid: 9578d385719ee0e4cadd6ecc46915eac, type: 2}

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1007761243981293584}
   - component: {fileID: 6766847027311956257}
   m_Layer: 5
-  m_Name: RumourButton
+  m_Name: AssignableRumourButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -123,13 +123,25 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: RumoursPageManager, Assembly-CSharp
-        m_MethodName: OpenRumour
-        m_Mode: 2
+      - m_Target: {fileID: 6766847027311956257}
+        m_TargetAssemblyTypeName: RumourButton, Assembly-CSharp
+        m_MethodName: AssignRumourToCharacter
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 6766847027311956257}
-          m_ObjectArgumentAssemblyTypeName: RumourButton, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6766847027311956257}
+        m_TargetAssemblyTypeName: RumourButton, Assembly-CSharp
+        m_MethodName: CloseAssignmentPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -147,7 +159,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e834036258410fa48a1a409dfa687c77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rumour: {fileID: 0}
 --- !u!1 &1007761243990270320
 GameObject:
   m_ObjectHideFlags: 0

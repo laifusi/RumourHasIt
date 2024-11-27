@@ -11,11 +11,13 @@ public class CharacterSO : ScriptableObject
     [SerializeField] DialogueSO dialogue;
 
     private RumourSO playersChoice;
+    private bool wasMet;
 
     public void Refresh()
     {
         // We eliminate the player's choice at the start of the game
         playersChoice = null;
+        wasMet = false;
     }
 
     public Sprite GetImage()
@@ -58,6 +60,16 @@ public class CharacterSO : ScriptableObject
     public bool HasPlayerCharacterChoice()
     {
         return playersChoice != null;
+    }
+
+    public void SetWasMet()
+    {
+        wasMet = true;
+    }
+
+    public bool HasBeenMet()
+    {
+        return wasMet;
     }
 }
 

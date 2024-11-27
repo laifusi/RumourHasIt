@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d526d9cf890757249871df727d2d9200, type: 3}
-  m_Name: Jake
+  m_Script: {fileID: 11500000, guid: b5f0b7d651cb17f46971a964ee713482, type: 3}
+  m_Name: JakeDialogue
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
-  characterName: Jake
-  profession: 1
-  dialogue: {fileID: 11400000, guid: 2e41872a391c61347890f45d9f99551e, type: 2}
+  dialogue:
+  - Hello, I'm Jake!
+  - I'm a cop :)
+  - Someone lost a phone
+  rumour: {fileID: 11400000, guid: 405ce897ca114864a9f9df923ed3ba58, type: 2}

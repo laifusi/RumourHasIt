@@ -30,6 +30,7 @@ public class Character : MonoBehaviour
     private void FinishedReading()
     {
         canRead = true;
+        GameManager.Instance.UnlockCharacter(character);
     }
 
     private void OnMouseDown()

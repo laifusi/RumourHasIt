@@ -10,11 +10,13 @@ public class RumourSO : ScriptableObject
 
     private CharacterSO gossip;
     private CharacterSO playersChoice;
+    private bool wasLearnt;
 
     public void Refresh()
     {
         // We eliminate the player's choice at the start of the game
         playersChoice = null;
+        wasLearnt = false;
     }
 
     public string GetRumour()
@@ -57,5 +59,15 @@ public class RumourSO : ScriptableObject
     public bool HasPlayerCharacterChoice()
     {
         return playersChoice != null;
+    }
+
+    public void SetWasLearnt()
+    {
+        wasLearnt = true;
+    }
+
+    public bool HasBeenLearnt()
+    {
+        return wasLearnt;
     }
 }
