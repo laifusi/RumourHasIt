@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d526d9cf890757249871df727d2d9200, type: 3}
-  m_Name: Jake
+  m_Name: Jack
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
-  characterName: Jake
-  profession: 1
-  dialogue: {fileID: 11400000, guid: 2e41872a391c61347890f45d9f99551e, type: 2}
+  image: {fileID: -2413806693520163455, guid: 084d898b9c23dc344afb5f23d6d18e4a, type: 3}
+  characterName: Jack
+  profession: 2
+  dialogue: {fileID: 11400000, guid: bbda6f59a3ae1ab4791328e87b302237, type: 2}
