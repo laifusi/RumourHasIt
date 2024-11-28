@@ -23,6 +23,8 @@ public class RumoursPageManager : MonoBehaviour
 
     private RumourSO openRumour;
 
+    public static Action OnUpdatedPlayersChoice;
+
     private void Awake()
     {
         if (Instance == null)
@@ -33,6 +35,11 @@ public class RumoursPageManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void Start()
+    {
+        CharactersPageManager.OnUpdatedPlayersChoice += FillAssignedCharacterSection;
     }
 
     public void OpenRumour(RumourButton rumourToOpen)
@@ -53,6 +60,9 @@ public class RumoursPageManager : MonoBehaviour
 
     private void FillAssignedCharacterSection()
     {
+        if (!openRumour)
+            return;
+
         bool hasChoice = openRumour.HasPlayerCharacterChoice();
         if (hasChoice)
         {
@@ -69,6 +79,7 @@ public class RumoursPageManager : MonoBehaviour
         openRumour.SetPlayersCharacterChoice(characterToAssign);
         characterToAssign.SetPlayersRumourChoice(openRumour);
         FillAssignedCharacterSection();
+        OnUpdatedPlayersChoice?.Invoke();
     }
 
     public void RemoveAssignedCharacterFromRumour()
@@ -76,6 +87,7 @@ public class RumoursPageManager : MonoBehaviour
         CharacterSO removedCharacter = openRumour.RemovePlayersChoice();
         removedCharacter.RemovePlayersChoice();
         FillAssignedCharacterSection();
+        OnUpdatedPlayersChoice?.Invoke();
     }
 
     internal void UnlockCharacter(CharacterSO characterMet)
@@ -94,5 +106,10 @@ public class RumoursPageManager : MonoBehaviour
                 return;
             }
         }
+    }
+
+    private void OnDestroy()
+    {
+        CharactersPageManager.OnUpdatedPlayersChoice -= FillAssignedCharacterSection;
     }
 }
