@@ -24,7 +24,7 @@ public class Dialogue_Text : MonoBehaviour
         text.SetText(dialogueLine);
     }
 
-    private void RemoveDialogueText()
+    private void RemoveDialogueText(DialogueSO dialogueRead)
     {
         text.SetText("");
     }

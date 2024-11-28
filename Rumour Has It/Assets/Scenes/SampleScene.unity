@@ -1220,6 +1220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allRumours:
   - {fileID: 11400000, guid: df8c80bb6473e9d478e244067fbe5bfc, type: 2}
+  - {fileID: 11400000, guid: 405ce897ca114864a9f9df923ed3ba58, type: 2}
   allCharacters:
   - {fileID: 11400000, guid: 9578d385719ee0e4cadd6ecc46915eac, type: 2}
   - {fileID: 11400000, guid: b2bba8e01a1744b498f7deb4fdd3d3bf, type: 2}

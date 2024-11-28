@@ -8,7 +8,7 @@ public class DialogueManager : MonoBehaviour
     public static DialogueManager Instance;
 
     public Action<string> OnNewDialogueLine;
-    public Action OnEndDialogue;
+    public Action<DialogueSO> OnEndDialogue;
 
     private DialogueSO currentDialogue;
     private bool canRead = false;
@@ -62,7 +62,7 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            OnEndDialogue?.Invoke();
+            OnEndDialogue?.Invoke(currentDialogue);
             currentDialogue = null;
             canRead = false;
             DialogueUI.SetActive(false);

@@ -27,8 +27,11 @@ public class Character : MonoBehaviour
         }
     }
 
-    private void FinishedReading()
+    private void FinishedReading(DialogueSO dialogueRead)
     {
+        if (dialogueRead != character.GetDialogue())
+            return;
+
         canRead = true;
         GameManager.Instance.UnlockCharacter(character);
     }
